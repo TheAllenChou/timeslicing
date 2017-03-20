@@ -11,7 +11,6 @@ package
     
     private var m_desiredOrientation:Orientation;
     private var m_currentOrietation:Orientation;
-    private var m_targetPos:Point;
     
     public function Npc()
     {
@@ -20,8 +19,6 @@ package
       
       m_currentOrietation = new Orientation(kCurrentOrientationColor);
       addChild(m_currentOrietation);
-      
-      m_targetPos = new Point();
     }
     
     public function setDesiredOrientationVisible(value:Boolean):void
@@ -29,24 +26,20 @@ package
       m_desiredOrientation.visible = value;
     }
     
-    public function updateDesiredOrientation(target:Object):void
+    public function setDesiredOrientationValue(rotation:Number, debugTarget:Object):void
     {
-      const dx:Number = target.x - x;
-      const dy:Number = target.y - y;
-      const angleRad:Number = Math.atan2(dy, dx);
-      const angleDeg:Number = angleRad * 180.0 / Math.PI;
+      m_desiredOrientation.rotation = rotation;
       
-      m_desiredOrientation.rotation = angleDeg;
-      m_targetPos.x = target.x;
-      m_targetPos.y = target.y;
+      if (!m_desiredOrientation.visible)
+        return;
       
+      if (!debugTarget)
+        return;
+        
       graphics.clear();
-      if (m_desiredOrientation.visible)
-      {
-        graphics.lineStyle(0, kDesiredOrientationColor);
-        graphics.moveTo(0.0, 0.0);
-        graphics.lineTo(target.x - x, target.y - y);
-      }
+      graphics.lineStyle(0, kDesiredOrientationColor);
+      graphics.moveTo(0.0, 0.0);
+      graphics.lineTo(debugTarget.x - x, debugTarget.y - y);
     }
     
     public function setToDesiredOrientation():void
@@ -62,7 +55,7 @@ package
        while (delta < -180.0)
         delta += 360.0;
       
-      const maxRotSpeed:Number = 50.0 * dt;
+      const maxRotSpeed:Number = 25.0 * dt;
       const cappedDelta:Number = Math.max(Math.min(delta, maxRotSpeed), -maxRotSpeed);
       
       m_currentOrietation.rotation = m_currentOrietation.rotation + cappedDelta;
