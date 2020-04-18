@@ -12,8 +12,3 @@ Source files used to generate the animations in this [blog post](http://allencho
 ![sync-input-sync-output-10hz](/img/sync-input-sync-output-30hz.gif)
 ![async-input-sync-output-10hz](/img/async-input-sync-output-10hz.gif)
 ![async-input-sync-output-10hz](/img/async-input-sync-output-30hz.gif)
-
-----
-**Ming-Lun "Allen" Chou**  
-[AllenChou.net](http://AllenChou.net)  
-[@TheAllenChou](http://twitter.com/TheAllenChou)  
