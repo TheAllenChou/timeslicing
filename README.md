@@ -1,4 +1,5 @@
 ## Timeslicing Batched Algorithms Across Multiple Frames
+by **Ming-Lun "Allen" Chou** / [AllenChou.net](http://AllenChou.net) / [@TheAllenChou](http://twitter.com/TheAllenChou) / [Patreon](https://www.patreon.com/TheAllenChou)
 
 Source files used to generate the animations in this [blog post](http://allenchou.net/2017/03/timeslicing-batched-algorithms-across-multiple-frames/).
 
